@@ -11279,3 +11279,17 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+
+div.dt-search {
+  float: right;
+}
+
+div.dt-info {
+  float: left;
+  margin-top: 0.8em;
+}
+
+div.dt-paging {
+  float: right;
+  margin-top: 0.5em;
+}

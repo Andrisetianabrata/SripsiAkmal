@@ -1,7 +1,11 @@
-// // Call the dataTables jQuery plugin
-// $(document).ready(function () {
-//   $('#dataTables').DataTable({
-//     order: [[1, 'desc']]
-//     // aoColumnDefs: [{ 'bSortable': false, 'aTargets': [0] }]
-//   });
-// });
+// Call the dataTables jQuery plugin
+$(document).ready(function () {
+  $('#dataTables').DataTable({
+    order: [[0, 'desc']],
+    layout: {
+      bottomStart: {
+        buttons: ['csv', 'excel', 'print']
+      }
+    }
+  });
+});
