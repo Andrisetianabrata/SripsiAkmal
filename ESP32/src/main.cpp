@@ -4,6 +4,7 @@
 #include <HTTPClient.h>
 
 int c;
+
 int humanCount = 0;
 String status = "";
 const int8_t buzzer = 19;
