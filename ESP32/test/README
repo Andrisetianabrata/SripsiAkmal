@@ -1,0 +1,96 @@
+
+This directory is intended for PlatformIO Test Runner and project tests.
+
+Unit Testing is a software testing method by which individual units of
+source code, sets of one or more MCU program modules together with associated
+control data, usage procedures, and operating procedures, are tested to
+determine whether they are fit for use. Unit testing finds problems early
+in the development cycle.
+
+More information about PlatformIO Unit Testing:
+- https://docs.platformio.org/en/latest/advanced/unit-testing/index.html
+
+
+```cpp
+
+    int ldr1 = analogRead(sensor1);
+    int ldr2 = analogRead(sensor2);
+
+    if (ldr1 < 1000 || ldr2 < 1000)
+    {
+      digitalWrite(buzzer, HIGH);
+      //  kalimat1 = "nyala";
+    }
+    else
+    {
+      digitalWrite(buzzer, LOW);
+      // kalimat1 = "mati";
+    }
+    if (ldr1 < 1000)
+    {
+      ke1.kalimat = "nyala";
+    }
+    else
+    {
+      ke1.kalimat = "mati";
+    }
+    if (ldr2 < 1000)
+    {
+      ke2.kalimat = "nyala";
+    }
+    else
+    {
+      ke2.kalimat = "mati";
+    }
+```
+
+
+```cpp
+  int sensorA = analogRead(27);
+  int sensorB = analogRead(34);
+
+  if (sensorA > 1000 && sensorB < 1000 && flag1 == 0)
+  {
+    timer1 = millis();
+    flag1 = 1;
+  }
+
+  if (sensorB > 1000 && sensorA < 1000 && flag2 == 0)
+  {
+    timer2 = millis();
+    flag2 = 1;
+  }
+
+  if (sensorA < 1000 && sensorB < 1000)
+  {
+    prevTimer1 = timer1;
+    prevTimer2 = timer2;
+    flag1 = 0;
+    flag2 = 0;
+  }
+
+  if (flag1 == 1 && flag2 == 1)
+  {
+    if (timer2 > timer1)
+    {
+      humanCount = humanCount + 1;
+      c = humanCount;
+      lcd_update();
+    }
+    if (timer1 > timer2)
+    {
+      humanCount = humanCount - 1;
+      if (humanCount < 0)
+      {
+        humanCount = 0;
+      }
+      c = humanCount;
+      lcd_update();
+    }
+    flag1 = 0;
+    flag2 = 0;
+  }
+  Serial.printf("timer1 : %d\nTimer2 : %d\n\n", timer1, timer2);
+  Serial.printf("LDR1 : %d\nLDR2 : %d\n\n", sensorA, sensorB);
+  delay(100);
+```
